@@ -417,7 +417,10 @@ def train(args: DictConfig) -> None:
         callbacks=callback_list,
         strategy=DDPStrategy(find_unused_parameters=False)
     )
+    print("Train Started")
     trainer.fit(model, dataloader, ckpt_path=args.train_model_file)
+    print("Train Finished")
+
 
 
 def sample(args: DictConfig) -> None:
@@ -460,6 +463,7 @@ def main(args: DictConfig) -> None:
         train(args)
     elif args.mode == 'sample':
         sample(args)
+    print("Main Finished")
 
 
 if __name__ == '__main__':
