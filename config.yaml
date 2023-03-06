@@ -6,7 +6,7 @@ num_workers: 2  # number of workers
 num_cpu_cores: -1  # number of cpu cores
 seed: 0  # random seed
 ckpt_dir: /kaggle/working/arldmckpt # checkpoint directory
-run_name: your_run_name # name for this run
+run_name: test_run # name for this run
 
 # task
 dataset: flintstones  # pororo flintstones vistsis vistdii
@@ -17,8 +17,8 @@ init_lr: 1e-5  # initial learning rate
 warmup_epochs: 1  # warmup epochs
 max_epochs: 50  # max epochs
 train_model_file:  # model file for resume, none for train from scratch
-freeze_clip: False  # whether to freeze clip
-freeze_blip: False  # whether to freeze blip
+freeze_clip: True  # whether to freeze clip
+freeze_blip: True  # whether to freeze blip
 freeze_resnet: False  # whether to freeze resnet
 
 # sample

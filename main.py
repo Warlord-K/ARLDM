@@ -131,7 +131,7 @@ class ARLDM(pl.LightningModule):
         self.time_embeddings = nn.Embedding(5, 768)
         self.mm_encoder = blip_feature_extractor(
             pretrained='https://storage.googleapis.com/sfr-vision-language-research/BLIP/models/model_base.pth',
-            image_size=224, vit='large')
+            image_size=224, vit='base')
         self.mm_encoder.text_encoder.resize_token_embeddings(args.get(args.dataset).blip_embedding_tokens)
 
         self.vae = AutoencoderKL.from_pretrained('runwayml/stable-diffusion-v1-5', subfolder="vae")
