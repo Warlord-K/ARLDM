@@ -1,1 +1,1 @@
-from flintstones import *
+from flintstones import StoryDataset
