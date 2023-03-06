@@ -420,6 +420,7 @@ def train(args: DictConfig) -> None:
         strategy=DDPStrategy(find_unused_parameters=False)
     )
     print("Train Started")
+    print(model,dataloader,args.train_model_file)
     trainer.fit(model, dataloader, ckpt_path=args.train_model_file)
     print("Train Finished")
 
