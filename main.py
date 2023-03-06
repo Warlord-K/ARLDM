@@ -391,22 +391,24 @@ class ARLDM(pl.LightningModule):
 
 
 def train(args: DictConfig) -> None:
+    print("Inside Train Function")
     dataloader = LightningDataset(args)
     dataloader.setup('fit')
+    print("Data Loaded")
     model = ARLDM(args, steps_per_epoch=dataloader.get_length_of_train_dataloader())
-
+    print("Model Loaded")
     logger = TensorBoardLogger(save_dir=os.path.join(args.ckpt_dir, args.run_name), name='log', default_hp_metric=False)
-
+    print("Logger Loaded")
     checkpoint_callback = ModelCheckpoint(
         dirpath=os.path.join(args.ckpt_dir, args.run_name),
         save_top_k=0,
         save_last=True
     )
-
+    print("Callback Set")
     lr_monitor = LearningRateMonitor(logging_interval='step')
 
     callback_list = [lr_monitor, checkpoint_callback]
-
+    print("Loading Trainer")
     trainer = pl.Trainer(
         accelerator='gpu',
         devices=args.gpu_ids,
