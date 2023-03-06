@@ -130,7 +130,7 @@ class ARLDM(pl.LightningModule):
         self.modal_type_embeddings = nn.Embedding(2, 768)
         self.time_embeddings = nn.Embedding(5, 768)
         self.mm_encoder = blip_feature_extractor(
-            pretrained='https://storage.googleapis.com/sfr-vision-language-research/BLIP/models/model_large.pth',
+            pretrained='https://storage.googleapis.com/sfr-vision-language-research/BLIP/models/model_base.pth',
             image_size=224, vit='large')
         self.mm_encoder.text_encoder.resize_token_embeddings(args.get(args.dataset).blip_embedding_tokens)
 
