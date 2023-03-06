@@ -457,6 +457,7 @@ def sample(args: DictConfig) -> None:
 
 @hydra.main(config_path=".", config_name="config")
 def main(args: DictConfig) -> None:
+    print("Main Started")
     pl.seed_everything(args.seed)
     if args.num_cpu_cores > 0:
         torch.set_num_threads(args.num_cpu_cores)
